@@ -9,6 +9,7 @@ class CourierDay(models.Model):
     stops_end = models.TimeField()
     pickup_end = models.TimeField()
 
+    added = models.DateTimeField(auto_now_add=True, null=True)
 
 # class Oddzial(models.Model):
 #     oddzial_id = models.IntegerField()
