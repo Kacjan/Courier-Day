@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from courier.models import CourierDay
-from courier.views import CourierDayListView
+from courier.views import CourierDayListView, CourierDayCreateView
 
 admin.site.register(CourierDay)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',CourierDayListView.as_view(), name='courier_day_list_view.html'),
+    path('',CourierDayListView.as_view(), name='courier_day_list_view'),
+    path('form/',CourierDayCreateView.as_view(), name ='add_day_form' ),
 ]
