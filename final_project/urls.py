@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from courier.models import CourierDay
+from courier.views import CourierDayListView
+
+admin.site.register(CourierDay)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',CourierDayListView.as_view(), name='courier_day_list_view.html'),
 ]

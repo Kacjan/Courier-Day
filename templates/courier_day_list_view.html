@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Courier Day {%  endblock %}
+
+{% block content %}
+    <h1>Courier Day</h1>
+    <ul>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th  scope="col">Dzień</th>
+      <th  scope="col">K Paczek</th>
+      <th scope="col">Adresy</th>
+      <th scope="col">Paczkomat</th>
+    </tr>
+  </thead>
+{% for day in object_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ day.date }}</th>
+      <td >{{ day.packages }}</td>
+      <td>{{ day.adresy}}</td>
+      <td>{{ day.paczkomat}}</td>
+    </tr>
+  </tbody>
+{% endfor %}
+</table>
+    </ul>
+
+    {{ day.date }} {{ day.packages }}  {{ day.paczkomat}}
+	
+{% endblock %}
+
