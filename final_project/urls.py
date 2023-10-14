@@ -17,10 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from courier.models import CourierDay
 from courier.views import CourierDayListView, CourierDayCreateView
 
-admin.site.register(CourierDay)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

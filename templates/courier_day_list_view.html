@@ -14,11 +14,11 @@
       <th scope="col">Paczkomat</th>
     </tr>
   </thead>
-{% for day in object_list %}
+{% for day in days %}
   <tbody>
     <tr>
-      <th scope="row">{{ day.date }}</th>
-      <td >{{ day.packages }}</td>
+      <th scope="row">{{ day.packages.date }}</th>
+      <td >{{ day.packages.packages }}</td>
       <td>{{ day.adresy}}</td>
       <td>{{ day.paczkomat}}</td>
     </tr>
