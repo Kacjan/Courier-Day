@@ -14,7 +14,7 @@ CourierDay.packages.packages
 
 class CourierDay(models.Model):
 
-    courier_id = models.IntegerField()
+    user_id = models.ForeignKey(User, models.SET_NULL, null=True)
     packages = models.ForeignKey('FacilityPackages', models.SET_NULL, null=True)
     adresy = models.IntegerField()
     paczkomat = models.IntegerField()
@@ -26,7 +26,7 @@ class CourierDay(models.Model):
 class FacilityPackages(models.Model):
     date = models.DateField()
     packages = models.IntegerField()
-    facility = models.IntegerField()
+    facility = models.ForeignKey('Facility', models.SET_NULL, null=True)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, models.SET_NULL, null=True)

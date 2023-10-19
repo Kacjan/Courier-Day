@@ -17,6 +17,9 @@
 {% for day in days %}
   <tbody>
     <tr>
+        {#   tutaj poprzez klucz obcy packages z CourierDay dostaję się do FacilityPackages     #}
+        {#   przez day.packages.date dostaję się do kolumny date z tablicy FaclilityPackages #}
+        {#   przez day.packages.packages dostaję się do dolumny packages z tablicy FaclilityPackages     #}
       <th scope="row">{{ day.packages.date }}</th>
       <td >{{ day.packages.packages }}</td>
       <td>{{ day.adresy}}</td>
