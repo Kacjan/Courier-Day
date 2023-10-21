@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from courier.views import CourierDayListView, CourierDayCreateView, Home, UpdateCourierDay
 
@@ -26,5 +26,7 @@ urlpatterns = [
     path('form/',CourierDayCreateView.as_view(), name ='add_day_form' ),
     path('', Home.as_view(), name = 'home'),
     path('courierday/update/<pk>', UpdateCourierDay.as_view(), name = 'update' ),
+    path('', include('users.urls')),
+
 
 ]
