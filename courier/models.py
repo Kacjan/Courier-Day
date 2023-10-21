@@ -23,14 +23,22 @@ class CourierDay(models.Model):
 
     added = models.DateTimeField(auto_now_add=True, null=True)
 
+    def __str__(self):
+        return f'{self.packages.date}'
+
 class FacilityPackages(models.Model):
     date = models.DateField()
     packages = models.IntegerField()
     facility = models.ForeignKey('Facility', models.SET_NULL, null=True)
 
+    def __str__(self):
+        return f'{self.date}'
 class Profile(models.Model):
     user = models.OneToOneField(User, models.SET_NULL, null=True)
     facility = models.OneToOneField('Facility', models.SET_NULL, null=True)
 
 class Facility(models.Model):
     name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
