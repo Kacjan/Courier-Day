@@ -1,17 +1,23 @@
+
+<title> Courier Day </title>
 {% extends "base.html" %}
 
-{% block title %}Courier Day {%  endblock %}
+
 
 {% block content %}
-    <h1>Courier Day</h1>
+    <h2>Witaj {{ user.username }} </h2>
+    <a class="btn btn-primary" href="{% url 'add_day_form' %}" role="button">Dodaj dzień</a>
     <ul>
     <table class="table table-striped">
   <thead>
     <tr>
       <th  scope="col">Dzień</th>
-      <th  scope="col">K Paczek</th>
+      <th  scope="col">Oddział</th>
       <th scope="col">Adresy</th>
       <th scope="col">Paczkomat</th>
+      <th scope="col">Koniec adresów</th>
+      <th scope="col">Koniec zbiorów</th>
+
     </tr>
   </thead>
 {% for day in days %}
@@ -24,6 +30,12 @@
       <td >{{ day.packages.packages }}</td>
       <td>{{ day.adresy}}</td>
       <td>{{ day.paczkomat}}</td>
+      <td>{{ day.stops_end}}</td>
+      <td>{{ day.pickup_end}}</td>
+{#        <td> <a href="{% url 'update' day.id %}"> EDYTUJ </a> </td>#}
+        <td><a class="btn btn-primary" href="{% url 'update' day.id %}" role="button">Edytuj</a></td>
+{#        <td> <a href="{% url 'delete' day.id %}"> USUŃ </a> </td>#}
+        <td><a class="btn btn-danger" href="{% url 'delete' day.id %}" role="button">Usuń</a></td>
     </tr>
   </tbody>
 {% endfor %}

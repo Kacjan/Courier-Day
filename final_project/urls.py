@@ -17,15 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from courier.views import CourierDayListView, CourierDayCreateView, Home, UpdateCourierDay
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('courierday/',CourierDayListView.as_view(), name='courier_day_list_view'),
-    path('form/',CourierDayCreateView.as_view(), name ='add_day_form' ),
-    path('', Home.as_view(), name = 'home'),
-    path('courierday/update/<pk>', UpdateCourierDay.as_view(), name = 'update' ),
+    path('', include('courier.urls')),
     path('', include('users.urls')),
 
 

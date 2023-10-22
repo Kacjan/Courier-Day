@@ -39,13 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-"""Dal porządku rozdzieliłem aplikacje"""
+"""Dla porządku rozdzieliłem aplikacje"""
 
 INSTALLED_EXTENSIONS = [
     'courier',
     'users',
-    # 'crispy_forms',
-    # 'crispy_bootstrap4',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 INSTALLED_APPS += INSTALLED_EXTENSIONS
@@ -134,9 +134,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
-#
-# CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = 'home'
 
