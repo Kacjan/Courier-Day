@@ -12,8 +12,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, models.SET_NULL, null=True)
     facility = models.OneToOneField('courier.Facility', models.SET_NULL, null=True)
 
-    # def __str__(self):
-    #     return f"Profile of {self.user.username}"
+    def __str__(self):
+        return f"Profile of {self.user.username}"
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

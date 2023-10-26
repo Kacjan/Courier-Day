@@ -17,7 +17,7 @@ CourierDay.packages.packages
 
 class CourierDay(models.Model):
 
-    user_id = models.ForeignKey(User, models.SET_NULL, null=True)
+    user = models.ForeignKey(User, models.SET_NULL, null=True)
     packages = models.ForeignKey('FacilityPackages', models.SET_NULL, null=True)
     adresy = models.IntegerField()
     paczkomat = models.IntegerField()
