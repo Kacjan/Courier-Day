@@ -13,5 +13,3 @@ class CourierDayModelForm(forms.ModelForm):
     class Meta:
         model = CourierDay
         fields = '__all__'
-
-    # user_id =
