@@ -19,8 +19,8 @@ class CourierDay(models.Model):
 
     user = models.ForeignKey(User, models.SET_NULL, null=True)
     packages = models.ForeignKey('FacilityPackages', models.SET_NULL, null=True)
-    adresy = models.IntegerField()
-    paczkomat = models.IntegerField()
+    addresses = models.IntegerField()
+    machine = models.IntegerField()
     stops_end = models.TimeField()
     pickup_end = models.TimeField()
 

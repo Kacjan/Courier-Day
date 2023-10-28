@@ -29,6 +29,11 @@ class CourierDayCreateView(LoginRequiredMixin, CreateView):
     form_class = CourierDayModelForm
     success_url = reverse_lazy('courier_day_list_view')
 
+    def get_form_kwargs(self):
+        kwargs=super().get_form_kwargs()
+        kwargs['request']=self.request
+        return kwargs
+
 class CourierDayListView(LoginRequiredMixin, View):
     def get(self, request):
         return render(
