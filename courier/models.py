@@ -6,9 +6,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-"""Jak dodać foreign key"""
-"""Czy muszę określać min/max przy IntegerField w modelu"""
-
 """W CourierDay w polu packages mam połączenie do tabeli FacilityPackages.
 Teraz przez ten klucz moge dostać się do wszystkich pól FacilityPackages np CourierDay.packages.date
 CourierDay.packages.packages
