@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.views import View
 from django.views.generic import ListView, CreateView, TemplateView, UpdateView, DeleteView
@@ -22,17 +22,23 @@ class Home(TemplateView):
 #             request,
 #             template_name='home.html'
 #         )
-
 class CourierDayCreateView(LoginRequiredMixin, CreateView):
 
-    template_name = 'form.html'
+    # template_name = 'form.html'
+    template_name = 'create_day.html'
     form_class = CourierDayModelForm
     success_url = reverse_lazy('courier_day_list_view')
 
     def get_form_kwargs(self):
         kwargs=super().get_form_kwargs()
-        kwargs['request']=self.request
+        kwargs['user']=self.request.user
         return kwargs
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.user = self.request.user
+        instance.save()
+        return redirect('courier_day_list_view')
 
 class CourierDayListView(LoginRequiredMixin, View):
     def get(self, request):

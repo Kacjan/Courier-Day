@@ -5,6 +5,7 @@
 
 
 {% block content %}
+    <div class="jumbotron">
     <h2>Witaj {{ user.username }} </h2>
     <a class="btn btn-primary" href="{% url 'add_day_form' %}" role="button">Dodaj dzień</a>
     <ul>
@@ -28,8 +29,8 @@
         {#   przez day.packages.packages dostaję się do dolumny packages z tablicy FaclilityPackages     #}
       <th scope="row">{{ day.packages.date }}</th>
       <td >{{ day.packages.packages }}</td>
-      <td>{{ day.adresy}}</td>
-      <td>{{ day.paczkomat}}</td>
+      <td>{{ day.addresses}}</td>
+      <td>{{ day.machine}}</td>
       <td>{{ day.stops_end}}</td>
       <td>{{ day.pickup_end}}</td>
 {#        <td> <a href="{% url 'update' day.id %}"> EDYTUJ </a> </td>#}
@@ -37,6 +38,7 @@
 {#        <td> <a href="{% url 'delete' day.id %}"> USUŃ </a> </td>#}
         <td><a class="btn btn-danger" href="{% url 'delete' day.id %}" role="button">Usuń</a></td>
     </tr>
+  </div>
   </tbody>
 {% endfor %}
 </table>
