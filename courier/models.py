@@ -15,11 +15,11 @@ CourierDay.packages.packages
 class CourierDay(models.Model):
 
     user = models.ForeignKey(User, models.SET_NULL, null=True)
-    packages = models.ForeignKey('FacilityPackages', models.SET_NULL, null=True)
-    addresses = models.IntegerField()
-    machine = models.IntegerField()
-    stops_end = models.TimeField()
-    pickup_end = models.TimeField()
+    packages = models.ForeignKey('FacilityPackages', models.SET_NULL, null=True, verbose_name="Data")
+    addresses = models.IntegerField(verbose_name="adresy")
+    machine = models.IntegerField(verbose_name="paczkomat")
+    stops_end = models.TimeField(verbose_name="konec adresów")
+    pickup_end = models.TimeField(verbose_name="koniec zbiorów")
 
     added = models.DateTimeField(auto_now_add=True, null=True)
 
