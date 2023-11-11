@@ -22,7 +22,8 @@ class CourierDay(models.Model):
 
     def __str__(self):
         return f'{self.packages.date}'
-
+    # Zwraca datę jako reprezentację tekstową (przydatne np w panelu administracyjnym)
+    # datę ściąga przez klucz obcy z modelu FacilityPackages
 class FacilityPackages(models.Model):
     date = models.DateField()
     packages = models.IntegerField()
