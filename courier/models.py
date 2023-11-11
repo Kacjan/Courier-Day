@@ -1,8 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-# from django.db.models.signals import post_save
-# from django.dispatch import receiver
-
 
 User = get_user_model()
 
@@ -25,7 +22,8 @@ class CourierDay(models.Model):
 
     def __str__(self):
         return f'{self.packages.date}'
-
+    # Zwraca datę jako reprezentację tekstową (przydatne np w panelu administracyjnym)
+    # datę ściąga przez klucz obcy z modelu FacilityPackages
 class FacilityPackages(models.Model):
     date = models.DateField()
     packages = models.IntegerField()

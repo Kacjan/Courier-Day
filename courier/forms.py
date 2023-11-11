@@ -9,4 +9,5 @@ class CourierDayModelForm(ModelForm):
 
     class Meta:
         model = CourierDay
-        exclude = ['user']
+        fields = '__all__'
+        # exclude = ['user']
