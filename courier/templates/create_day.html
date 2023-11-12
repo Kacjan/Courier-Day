@@ -1,19 +1,22 @@
-
-<title> Dodaj dzień </title>
 {% extends 'form.html' %}
+<title>{% block title %}Dodaj dzień{% endblock %}</title>
 {% load crispy_forms_tags %}
 {% block content %}
-
+<div class="jumbotron mt-3 mb-3">
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Dodaj dzień!</legend>
+                <legend class="border-bottom mb-4">Dodaj dzień</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Wyślij</button>
             </div>
         </form>
+        <div>
+            <a class="btn btn-outline-info" href="/courierday/">Wróć</a>
+        </div>
     </div>
+</div>
 {% endblock %}

@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-
+<title>{% block title %}Usuwanie dnia{% endblock %}</title>
 {% block content %}
-  <form method="post">
-    {% csrf_token %} 
-    <p>
-      Na pewno chcesz usunąć dzień "{{ object.title }}" z listy?
-    </p> 
-    <input type="submit" value="Usuń" class="btn btn-danger">
-  </form> 
+<div class="jumbotron mt-3 mb-3">
+    <form method="post">
+        {% csrf_token %}
+            <legend class="border-bottom mb-4">Na pewno chcesz usunąć dzień z listy?</legend>
+        <input type="submit" value="Usuń" class="btn btn-danger">
+    </form>
+    <div>
+        <a class="btn btn-outline-info" href="/courierday/">Wróć</a>
+    </div>
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="jumbotron">
-        <h2 class="account-heading">{{ user.username }}</h2>
-        <p class="text-secondary">Facility: {{ user.profile.facility }}</p>
-        <a class="navbar-brand" href="/password_change/">Zmień hasło</a>
+<title>{% block title %}Profil{% endblock %}</title>
+    <div class="jumbotron mt-3 mb-3">
+        <h3 class="account-heading">Witaj {{ user.username }}</h3>
+        <p class="text-secondary">Twój oddział: {{ user.profile.facility }}</p>
+        <a class="btn btn-outline-info" href="/password_change/">Zmień hasło</a>
     </div>
 {% endblock %}

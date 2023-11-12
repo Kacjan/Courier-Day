@@ -1,23 +1,21 @@
 {% extends 'form.html' %}
-<title>{% block title %}Login{% endblock %}</title>
 {% load crispy_forms_tags %}
 {% block content %}
+<title>{% block title %}Edytuj dzień!{% endblock %}</title>
 <div class="jumbotron mt-3 mb-3">
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Zaloguj!</legend>
+                <legend class="border-bottom mb-4">Edytuj dzień!</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Zaloguj się</button>
+                <button class="btn btn-outline-info" type="submit">Wyślij</button>
             </div>
         </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Nie masz konta jeszcze konta? <a class="ml-2" href="{% url 'register' %}">Zarejestruj się</a>
-            </small>
+        <div>
+            <a class="btn btn-outline-info" href="/courierday/">Wróć</a>
         </div>
     </div>
 </div>

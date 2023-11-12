@@ -1,44 +1,47 @@
 
-<title> Courier Day </title>
+
 {% extends "base.html" %}
-
-
-
+<title>{% block title %}Dzień kuriera{% endblock %}</title>
 {% block content %}
-    <div class="jumbotron">
-    <h2>Witaj {{ user.username }} </h2>
-    <a class="btn btn-primary" href="{% url 'add_day_form' %}" role="button">Dodaj dzień</a>
-    <ul>
-    <table class="table table-striped">
-  <thead>
-    <tr>
-      <th  scope="col">Dzień</th>
-      <th  scope="col">Oddział</th>
-      <th scope="col">Adresy</th>
-      <th scope="col">Paczkomat</th>
-      <th scope="col">Koniec adresów</th>
-      <th scope="col">Koniec zbiorów</th>
+<div class="container">
+    <div class="jumbotron mt-3 mb-3">
+        <h3>Witaj, {{ user.username }}</h3>
+        <a class="btn btn-outline-success  mb-3" href="{% url 'add_day_form' %}" role="button">Dodaj dzień</a>
+        <form method="get" style="background-color: #dde0e3;">
+            {{ form.start_date.label_tag }} {{ form.start_date }}
+            {{ form.end_date.label_tag }} {{ form.end_date }}
+            <button type="submit" class="btn btn-outline-primary btn-sm">Filtruj</button>
+        </form>
 
-    </tr>
-  </thead>
-{% for day in days %}
-  <tbody>
-    <tr>
-        {#   tutaj poprzez klucz obcy packages z CourierDay dostaję się do FacilityPackages     #}
-        {#   przez day.packages.date dostaję się do kolumny date z tablicy FaclilityPackages #}
-        {#   przez day.packages.packages dostaję się do dolumny packages z tablicy FaclilityPackages     #}
-      <th scope="row">{{ day.packages.date }}</th>
-      <td >{{ day.packages.packages }}</td>
-      <td>{{ day.addresses}}</td>
-      <td>{{ day.machine}}</td>
-      <td>{{ day.stops_end}}</td>
-      <td>{{ day.pickup_end}}</td>
-{#        <td> <a href="{% url 'update' day.id %}"> EDYTUJ </a> </td>#}
-        <td><a class="btn btn-primary" href="{% url 'update' day.id %}" role="button">Edytuj</a></td>
-{#        <td> <a href="{% url 'delete' day.id %}"> USUŃ </a> </td>#}
-        <td><a class="btn btn-danger" href="{% url 'delete' day.id %}" role="button">Usuń</a></td>
-    </tr>
-  </tbody>
-{% endfor %}
-    </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Dzień</th>
+                    <th scope="col">Oddział</th>
+                    <th scope="col">Adresy</th>
+                    <th scope="col">Paczkomat</th>
+                    <th scope="col">Koniec adresów</th>
+                    <th scope="col">Koniec zbiorów</th>
+                    <th scope="col">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for day in days %}
+                <tr>
+                    <td>{{ day.packages.date }}</td>
+                    <td>{{ day.packages.packages }}</td>
+                    <td>{{ day.addresses }}</td>
+                    <td>{{ day.machine }}</td>
+                    <td>{{ day.stops_end }}</td>
+                    <td>{{ day.pickup_end }}</td>
+                    <td>
+                        <a class="btn btn-outline-warning btn-sm" href="{% url 'update' day.id %}" role="button">Edit</a>
+                        <a class="btn btn-outline-danger btn-sm" href="{% url 'delete' day.id %}" role="button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
