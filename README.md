@@ -76,11 +76,11 @@ Courier day site contains:
 
 Day adding form contains 5 fields
 
-Date(Data) - linked to the day date and number of packages in the users facility on said day.
-Addresses(Adresy) - Number of addresses the courier must visit that day to deliver packages.
-Machine(Paczkomat) - Number of packages the courier must deliver to parcel pickup stations.
-Address end(Koniec adresów) - Time of the last delivery.
-Pickup end(Koniec zbiorów) - Time of the last pickup.
+- Date(Data) - linked to the day date and number of packages in the users facility on said day.
+- Addresses(Adresy) - Number of addresses the courier must visit that day to deliver packages.
+- Machine(Paczkomat) - Number of packages the courier must deliver to parcel pickup stations.
+- Address end(Koniec adresów) - Time of the last delivery.
+- Pickup end(Koniec zbiorów) - Time of the last pickup.
 
 For new users without an assigned facility field Date will be disabled.
 User is able to pick up Date only from the facility assigned to them.
