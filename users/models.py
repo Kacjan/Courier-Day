@@ -4,7 +4,6 @@ from courier.models import Facility
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-"""Czy to jest taki sam User jak z from django.contrib.auth.models import User ^^ """
 from django.contrib.auth import get_user_model
 User = get_user_model()
 

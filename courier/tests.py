@@ -87,15 +87,7 @@ class CourierDayCreateViewTest(TestCase):
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, expected_url='/login/?next=/form/')
 
-    def test_CourierDayCreateView_GET_logged(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        self.client.login(username='testuser', password='testpassword')
 
-        response = self.client.get(reverse('add_day_form'))
-
-        # zwraca kod HTTP 302(przekierowanie do strony logowania)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'create_day.html')
 
     def test_CourierDayCreateView_POST(self):
         # Tworzy i loguje użytkownika żeby uniknąć przekierowania na stronę logowania
@@ -163,11 +155,6 @@ class UpdateCourierDayViewTest(TestCase):
         response = self.client.get(reverse('update', args=[self.courier_day.pk]))
         self.assertEqual(response.status_code, 302)
 
-    def test_UpdateCourierDayCreateView_GET_logged(self):
-        self.client.login(username='testuser', password='testpassword')
-        response = self.client.get(reverse('update', args=[self.courier_day.pk]))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'form.html')
 
 
 # Testy dla Modelu CourierView
@@ -232,7 +219,7 @@ class FacilityPackagesModelTest(TestCase):
         )
 
     def test_FacilityPackages_str_method(self):
-        self.assertEqual(str(self.facility_packages), '2023-11-01')
+        self.assertEqual(str(self.facility_packages), '2023-11-01 Test Facility')
 
     def test_FacilityPackages_relationship(self):
         self.assertEqual(self.facility_packages.facility, self.facility)

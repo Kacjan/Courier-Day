@@ -47,7 +47,13 @@ class CourierDayCreateView(LoginRequiredMixin, CreateView):
     form_class = CourierDayModelForm
     success_url = reverse_lazy('courier_day_view')
 
-    # Uzupełnia pole user zalogowanym userem
+    # Dodaje i zwraca obiekt użytkowinia do obiektów formularza
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    # Uzupełnia niewidoczne w formularzu pole user zalogowanym userem
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)

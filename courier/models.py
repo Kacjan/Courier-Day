@@ -30,7 +30,7 @@ class FacilityPackages(models.Model):
     facility = models.ForeignKey('Facility', models.SET_NULL, null=True)
 
     def __str__(self):
-        return f'{self.date}'
+        return f'{self.date} {self.facility}'
 
 class Facility(models.Model):
     name = models.CharField(max_length=50)
