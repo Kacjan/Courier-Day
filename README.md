@@ -4,37 +4,103 @@ When looking for a topic for my first Django project, I wanted to create somethi
 I work as a courier, and I wanted to create a convenient way to prepare statistics and compare the amount of work for the next day based on the forecast number of parcels in the facility.
 
 
+## Main features
+
+* Separated applications: for main content and users
+
+* Registration, login, profile, and password change for users
+
+* List of work days with 6 columns of data : Date, Facility packages, Addresses, Machine, End hour of deliveries, End hour of pick-ups
+
+* Filtering form for a displayed number of workdays
+
+* Form for adding new workdays
+
+* Separated requirements files
+
+* SQLite3 database
+
+## Built With
+
+* [![Python][Python.com]][Python-url]
+* [![Django][Django.com]][Django-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+
 ## Setup
 
-The first thing to do is to clone the repository:
+1. Create a PyCharm project with the virtual environment
+
+2. Clone the repository:
 
 ```sh
-$ git clone https://github.com/Kacjan/final_project.git
-$ cd sample-django-app
+$ git clone https://github.com/Kacjan/Courier-Day.git
+$ cd Courier-Day
 ```
 
-Create a virtual environment to install dependencies in and activate it:
+3. Install the dependencies:
 
 ```sh
-$ virtualenv2 --no-site-packages env
-$ source env/bin/activate
+$ pip install -r requirements.txt
 ```
-
-Then install the dependencies:
-
-```sh
-(env)$ pip install -r requirements.txt
-```
-Note the `(env)` in front of the prompt. This indicates that this terminal
-session operates in a virtual environment set up by `virtualenv2`.
 
 Once `pip` has finished downloading the dependencies:
 ```sh
-(env)$ cd project
-(env)$ python manage.py runserver
+$ python manage.py runserver
 ```
+
+if it doesn't work make sure you are in the Courier-Day folder ($ cd Courier-Day)
+
 And navigate to `http://127.0.0.1:8000`.
 
-# Features
+## Usage
+
+Admin must add a list of facilities to the database by admin panel.
+Then he can add new days with a number of facility packages.
+
+Unlogged users can only view home, register, and login sites.
+
+New users can register by filling register form.
+
+Then the Admin must assign the new user to the existing facility, without this user won't be able to add a new day to his list.
+
+Logged users can view home, courier day list, profile and logout links.
+
+Profile site contains information about his user name, assigned facility, and link to password change form.
+
+Courier day site contains:
+- List of courier days
+- Link to form adding a new day
+- Form filtering list by start and end date
+- Button updating chosen day
+- Button deleting chosen day
+
+Day adding form contains 5 fields
+
+Date(Data) - linked to the day date and number of packages in the users facility on said day.
+Addresses(Adresy) - Number of addresses the courier must visit that day to deliver packages.
+Machine(Paczkomat) - Number of packages the courier must deliver to parcel pickup stations.
+Address end(Koniec adresów) - Time of the last delivery.
+Pickup end(Koniec zbiorów) - Time of the last pickup.
+
+For new users without an assigned facility field Date will be disabled.
+User is able to pick up Date only from the facility assigned to them.
 
 
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[Python.com]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[Python-url]: https://www.python.org/
+[Django.com]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white
+[Django-url]: https://www.djangoproject.com/
+[Bootstrap.com]: https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
